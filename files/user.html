@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>User</title>
+  <meta charset="utf-8">
+  <head profile="http://www.w3.org/2005/10/profile">
+ <link rel="shortcut icon" href="favibook.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script>
+  function validate() {
+		
+var fname=document.getElementById("fname");
+if (fname.value == "") {
+  	fname.style.borderColor="Red";
+  		fname.style.borderStyle="solid";
+    alert("First Name must be filled out");
+    
+    }
+    }
+  </script>
+  <style>
+    /* Remove the navbar's default rounded borders and increase the bottom margin */ 
+    .navbar {
+      margin-bottom: 50px;
+      border-radius: 0;
+      
+    }
+    
+    /* Remove the jumbotron's default bottom margin */ 
+     .jumbotron {
+      margin-bottom: 0;
+     background-color: #ffffff;
+     background-image: url('bookback.jpg');
+     
+    }
+   body{
+   background-image: url('papy2.jpg');
+   }
+   
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #191919;
+      padding: 25px;
+    }
+    .footerclass{
+    	color: #e6e6e6;
+    }
+  </style>
+</head>
+<body>
+
+<div class="jumbotron">
+  <div class="container text-center">
+  <img src="booklist.jpg"/>
+    
+  </div>
+</div>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+         <li class="active"><a href="/">Home</a></li>
+        <li><a href="/booklist">BookList</a></li>
+        <li><a href="/user.html">Users</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="checkin.html">Checkin</a></li>
+        <li><a href="fines.html">Fines</a></li>
+      </ul>
+      
+    </div>
+  </div>
+</nav>
+
+<div class="container">    
+  <div class="row">
+    <div class="col-sm-4">
+     
+   </div>
+   </div>
+</div><br>
+
+<div class="container">    
+  <div class="row">
+    <div class="col-sm-4">
+      
+    </div>
+    <div class="col-sm-4"> 
+      <form class="form-inline" action="/user-info" method="POST">
+      <input type="text" class="form-control" size="50" placeholder="SSN" name="ssn">
+  
+    <input type="text" class="form-control" size="50" placeholder="FIRST NAME" name="fname">
+    <input type="text" class="form-control" size="50" placeholder="LAST NAME" name="lname">
+    <input type="text" class="form-control" size="50" placeholder="ADDRESS" name="address">
+    <input type="text" class="form-control" size="50" placeholder="CITY" name="city">
+    <input type="text" class="form-control" size="50" placeholder="STATE" name="state">
+    <input type="text" class="form-control" size="50" placeholder="PHONE NO." name="phone">
+    <br /><br />
+     
+    <button type="submit" class="btn btn-danger">CREATE USER</button>
+  </form>
+    </div>
+    <div class="col-sm-4"> 
+      
+      </div>
+    </div>
+  </div>
+<br><br>
+
+<footer class="container-fluid text-center">
+  <p class="footerclass">Library Management System</p>
+</footer>
+
+</body>
+</html>

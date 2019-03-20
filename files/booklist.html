@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>BookList</title>
+  <meta charset="utf-8">
+  <head profile="http://www.w3.org/2005/10/profile">
+ <link rel="shortcut icon" href="favibook.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/select/1.2.7/js/dataTables.select.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<!--<script src="../assets/jquery.bootgrid.fa.js"></script>
+<script src="../assets/jquery.bootgrid.fa.min.js></script>"
+-->
+
+<link rel="https://cdnjs.cloudflare.com/ajax/libs/jquery-bootgrid/1.3.1/jquery.bootgrid.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-bootgrid/1.3.1/jquery.bootgrid.js"></script>
+
+  
+  <script src="grid.js"></script>
+  <script type="text/javascript" src="data.json"></script>
+<script>
+
+$( document ).ready(function() {
+    console.log( "ready!" );
+    $( "#target" ).submit(function( event ) {
+  alert( "Handler for .submit() called." );
+  event.preventDefault();
+});
+});
+
+
+/*	
+	postData(`http://example.com/answer`, {answer: 42})
+  .then(data => console.log(JSON.stringify(data))) // JSON-string from `response.json()` call
+  .catch(error => console.error(error));*/
+$( document ).ready(function() {
+  
+  $('#btnSubmit').click( function() {
+  	 $('#formid').click( function(e) {
+  	
+  	e.preventDefault();
+
+        get the action-url of the form
+        var actionurl = e.currentTarget.action;
+   $.ajax({
+        url: '/submit-form',
+        type: 'post',
+        dataType: 'json',
+        data: $('#formid').serialize(),
+        
+        success: function(data) {
+                           debugger;    
+                   console.log(data);
+                 }
+ });
+ 
+ /*$.ajax({
+                url: actionurl,
+                type: 'post',
+                dataType: 'application/json',
+                data: $("#formid").serialize(),
+                success: function(data) {
+                    console.log(data);
+                }
+        */});
+*/
+}); 
+
+});*/
+//*/
+
+
+</script>
+  <style>
+    /* Remove the navbar's default rounded borders and increase the bottom margin */ 
+    .navbar {
+      margin-bottom: 50px;
+      border-radius: 0;
+      
+    }
+    
+    /* Remove the jumbotron's default bottom margin */ 
+     .jumbotron {
+      margin-bottom: 0;
+     background-color: #ffffff;
+     background-image: url('bookback.jpg');
+     
+    }
+   body{
+   background-image: url('papy2.jpg');
+   }
+   
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #191919;
+      padding: 25px;
+    }
+    .footerclass{
+    	color: #e6e6e6;
+    }
+  </style>
+</head>
+<body>
+
+<div class="jumbotron">
+  <div class="container text-center">
+  <img src="booklist.jpg"/>
+    
+  </div>
+</div>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+         <li class="active"><a href="/">Home</a></li>
+        <li><a href="/booklist.html">BookList</a></li>
+        <li><a href="/">Users</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="checkin.html">Checkin</a></li>
+        <li><a href="fines.html">Fines</a></li>
+      </ul>
+      
+    </div>
+  </div>
+</nav>
+
+<div class="container">    
+  <div class="row">
+    <div class="col-sm-4">
+     
+   </div>
+   </div>
+</div><br>
+
+<div class="container">    
+  <div class="row">
+    <div class="col-sm-4">
+      
+    </div>
+    <div class="col-sm-4"> 
+      <form class="form-inline" id="formid" method="post" action="/submit-form">
+    <input type="type" class="form-control" size="50" placeholder="ENTER EITHER ISBN, AUTHOR NAME OR BOOK TITLE" name="isbn" id="fname"><br /><br />
+     
+    <button type="submit" class="btn btn-danger" id="btnSubmit" >CHECK AVAILABILITY</button><br /><br />
+  </form>
+  
+ 
+    </div>
+    <div class="col-sm-4"> 
+      
+      </div>
+    </div>
+  </div>
+<br><br>
+<table id="grid-selection" class="table table-condensed table-hover table-striped">
+    <thead>
+        <tr>
+            <th data-column-id="id" data-type="numeric" data-identifier="true">ID</th>
+            <th data-column-id="sender">Sender</th>
+            <th data-column-id="received" data-order="desc">Received</th>
+            <th data-column-id="link" data-formatter="link" data-sortable="false">Link</th>
+        </tr>
+    </thead>
+</table>
+<footer class="container-fluid text-center">
+  <p class="footerclass">Library Management System</p>
+</footer>
+
+</body>
+</html>
